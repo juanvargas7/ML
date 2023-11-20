@@ -22,9 +22,9 @@ import matplotlib.pyplot as plt
 
 
 os.getcwd()
-training = pd.read_excel('/Users/juanvargas/Documents/GitHub/ML/p6/GeneExpressionCancer_training.xlsx')
-test_data = pd.read_excel('/Users/juanvargas/Documents/GitHub/ML/p6/GeneExpressionCancer_test.xlsx')
-val_data = pd.read_excel('/Users/juanvargas/Documents/GitHub/ML/p6/GeneExpressionCancer_validation.xlsx')
+training = pd.read_excel('GeneExpressionCancer_training.xlsx')
+test_data = pd.read_excel('GeneExpressionCancer_test.xlsx')
+val_data = pd.read_excel('GeneExpressionCancer_validation.xlsx')
 ##### Set up the data and pre process
 
 #Training data
