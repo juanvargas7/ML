@@ -36,7 +36,6 @@ model.load_state_dict(torch.load('full_model.pth', map_location=torch.device('cu
 
 # Create a data loader for the test dataset
 testLoader = data.DataLoader(dataset=testData, batch_size=batchSize, shuffle=True)
-# Assuming you have imported torch at the beginning of your script
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)  # Ensure the model is on the right device
 
@@ -44,7 +43,7 @@ model.to(device)  # Ensure the model is on the right device
 all_labels = []
 all_predictions = []
 
-with torch.no_grad():  # No need to track gradients for evaluation
+with torch.no_grad(): 
     for images, labels in testLoader:
         images, labels = images.to(device), labels.to(device)
         outputs = model(images)
