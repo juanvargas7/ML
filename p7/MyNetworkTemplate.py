@@ -22,10 +22,10 @@ class MyNetwork(torch.nn.Module):
         
         self.conv = torch.nn.Sequential(
             
-            torch.nn.Conv2d(3, 32, kernel_size=3, padding=1),  # Output size: [batch_size, 32, 28, 28]
+            torch.nn.Conv2d(3, 32, kernel_size=3, padding=1),  
             torch.nn.ReLU(),
             torch.nn.MaxPool2d(2, 2),
-            torch.nn.Conv2d(32, 64, kernel_size=3, padding=1),  # Output size: [batch_size, 64, 14, 14]
+            torch.nn.Conv2d(32, 64, kernel_size=3, padding=1),  
             torch.nn.ReLU(),
             torch.nn.MaxPool2d(2, 2),
             torch.nn.Conv2d(64,2,1)
@@ -33,34 +33,34 @@ class MyNetwork(torch.nn.Module):
 
         self.conv = torch.nn.Sequential(
             # First Convolutional Block
-            torch.nn.Conv2d(3, 32, kernel_size=3, padding=1),  # Output: [batch_size, 32, 28, 28]
+            torch.nn.Conv2d(3, 32, kernel_size=3, padding=1),  
             torch.nn.BatchNorm2d(32),
             torch.nn.ReLU(),
-            torch.nn.Conv2d(32, 32, kernel_size=3, padding=1),  # Additional Conv Layer
+            torch.nn.Conv2d(32, 32, kernel_size=3, padding=1), 
             torch.nn.BatchNorm2d(32),
             torch.nn.ReLU(),
-            torch.nn.AvgPool2d(2,2),  # Output: [batch_size, 32, 14, 14]
-            torch.nn.Dropout(0.1),  # Dropout for Regularization
+            torch.nn.AvgPool2d(2,2),  
+            torch.nn.Dropout(0.1),  
 
             # Second Convolutional Block
-            torch.nn.Conv2d(32, 64, kernel_size=3, padding=1),  # Output: [batch_size, 64, 14, 14]
+            torch.nn.Conv2d(32, 64, kernel_size=3, padding=1),  
             torch.nn.BatchNorm2d(64),
             torch.nn.ReLU(),
-            torch.nn.Conv2d(64, 64, kernel_size=3, padding=1),  # Additional Conv Layer
+            torch.nn.Conv2d(64, 64, kernel_size=3, padding=1), 
             torch.nn.BatchNorm2d(64),
             torch.nn.ReLU(),
-            torch.nn.MaxPool2d(2, 2),  # Output: [batch_size, 64, 7, 7]
-            torch.nn.Dropout(0.1),  # Dropout for Regularization
+            torch.nn.MaxPool2d(2, 2),  
+            torch.nn.Dropout(0.1),  
 
             # Third Convolutional Block
-            torch.nn.Conv2d(64, 128, kernel_size=3, padding=1),  # Output: [batch_size, 128, 7, 7]
+            torch.nn.Conv2d(64, 128, kernel_size=3, padding=1),  
             torch.nn.BatchNorm2d(128),
             torch.nn.ReLU(),
-            torch.nn.Conv2d(128, 128, kernel_size=3, padding=1),  # Additional Conv Layer
+            torch.nn.Conv2d(128, 128, kernel_size=3, padding=1), 
             torch.nn.BatchNorm2d(128),
             torch.nn.ReLU(),
-            torch.nn.MaxPool2d(2, 2),  # Output: [batch_size, 128, 3, 3]
-            torch.nn.Dropout(0.1),  # Dropout for Regularization
+            torch.nn.MaxPool2d(2, 2), 
+            torch.nn.Dropout(0.1),  
 
             # Final Convolutional Layer
             torch.nn.Conv2d(128, 20, kernel_size=3),
